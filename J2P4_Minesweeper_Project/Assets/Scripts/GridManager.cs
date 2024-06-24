@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    public int width = 10;
-    public int height = 10;
-    public GameObject tilePrefeb;
+    public int width = 9;
+    public int height = 9;
+    public GameObject tilePrefab;
+    public Transform mineField;
+
+    private Tile[,] grid;
 
     void Start()
     {
@@ -13,19 +16,21 @@ public class GridManager : MonoBehaviour
 
     void GenerateGrid()
     {
-        // Making a grid / Map
+        grid = new Tile[width, height];
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                Instantiate(tilePrefeb, new Vector3(x, y, 0), Quaternion.identity);
+                GameObject newTile = Instantiate(tilePrefab, new Vector3(x, y, 0), Quaternion.identity, mineField);
+                grid[x, y] = newTile.GetComponent<Tile>();
+                newTile.name = $"Tile_Save";
             }
         }
     }
+
     void PlaceMines()
     {
         // Mine placing logic
-            
     }
 
     void CalculateNumbers()
