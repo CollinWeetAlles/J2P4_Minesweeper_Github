@@ -5,10 +5,6 @@ using UnityEngine.EventSystems;
 
 public class ClickHandler : MonoBehaviour, IPointerClickHandler
 {
-    public bool hasMine;
-    public int surroundingMines;
-
-
     public UnityEvent leftClick;
     public UnityEvent middleClick;
     public UnityEvent rightClick;
@@ -40,7 +36,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
         else if (eventData.button == PointerEventData.InputButton.Right)
             rightClick.Invoke();
     }
-
+        
     protected virtual void LeftClick() {}
     protected virtual void MiddleClick() {}
     protected virtual void RightClick() {}
