@@ -2,58 +2,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FlagCount : MonoBehaviour
+public class FlagCount : BaseUI
 {
-    [SerializeField] List<Sprite> newNumbers = new List<Sprite>();
-    [SerializeField] Image leftImage;
-    [SerializeField] Image middleImage;
-    [SerializeField] Image rightImage;
-    private int flagCount;
+    private int flagCount;   // Current count of flags
 
     private void Start()
     {
-        //if (GameManager.Instance != null)
-        //{
-        //    GameManager.Instance.RegisterFlagCount(this);
-        //}
-        flagCount = 10;
-        UpdateFlagCountDisplay();
+        flagCount = 10;             // Initialize flag count to 10
+        UpdateFlagCountDisplay();   // Update UI to display initial flag count
     }
 
+    // Decrements the flag count by 1, if greater than 0
     public void DecrementFlagCount()
     {
         if (flagCount > 0)
         {
-            flagCount--;
-            UpdateFlagCountDisplay();
+            flagCount--;            // Decrease flag count
+            UpdateFlagCountDisplay();   // Update UI to reflect new flag count
         }
     }
 
+    // Increments the flag count by 1, if less than 10
     public void IncrementFlagCount()
     {
         if (flagCount < 10)
         {
-            flagCount++;
-            UpdateFlagCountDisplay();
+            flagCount++;            // Increase flag count
+            UpdateFlagCountDisplay();   // Update UI to reflect new flag count
         }
     }
 
+    // Updates the UI to display the current flag count
     private void UpdateFlagCountDisplay()
     {
-        int hundreds = flagCount / 64;
-        int tens = (flagCount / 8) % 8;
-        int units = flagCount % 8;
-
-        if (leftImage != null && middleImage != null && rightImage != null)
-        {
-            leftImage.sprite = newNumbers[hundreds];
-            middleImage.sprite = newNumbers[tens];
-            rightImage.sprite = newNumbers[units];
-        }
+        UpdateDisplay(flagCount);   // Call method from base class to update UI display
     }
 
+    // Property to get the current number of flags placed
     public int FlagsPlaced
     {
-        get { return flagCount; }
+        get { return flagCount; }   // Return current flag count
     }
 }

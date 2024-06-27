@@ -15,15 +15,16 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
         middleClick.AddListener(MiddleClick);
         rightClick.AddListener(RightClick);
     }
+
     void OnMouseUpAsButton()
     {
-        if (Input.GetMouseButton(0)) // Left click
+        if (Input.GetMouseButton(0))
         {
             LeftClick();
         }
-        else if (Input.GetMouseButton(1)) // Right click
+        else if (Input.GetMouseButton(1))
         {
-            MiddleClick();
+            RightClick();
         }
     }
 
@@ -36,8 +37,8 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
         else if (eventData.button == PointerEventData.InputButton.Right)
             rightClick.Invoke();
     }
-        
-    protected virtual void LeftClick() {}
-    protected virtual void MiddleClick() {}
-    protected virtual void RightClick() {}
+
+    protected virtual void LeftClick() { }
+    protected virtual void MiddleClick() { }
+    protected virtual void RightClick() { }
 }
