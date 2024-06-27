@@ -3,9 +3,23 @@ using UnityEngine.SceneManagement;
 
 public class Sceneloader : MonoBehaviour
 {
-    
-    public void StartGame()
+    public void StartGameEasy()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Easy");
+    }
+    public void StartGameMedium()
+    {
+        SceneManager.LoadScene("Medium");
+    }
+    public void StartGameHard()
+    {
+        SceneManager.LoadScene("Hard");
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("StartScreen");
+        }
     }
 }

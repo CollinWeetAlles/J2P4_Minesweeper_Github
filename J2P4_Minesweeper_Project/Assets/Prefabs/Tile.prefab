@@ -159,7 +159,11 @@ MonoBehaviour:
   - {fileID: 2053989333, guid: 296ade39350f2154eb7da16e19f4b3b3, type: 3}
   - {fileID: 164957689, guid: 296ade39350f2154eb7da16e19f4b3b3, type: 3}
   - {fileID: -1331120950, guid: 296ade39350f2154eb7da16e19f4b3b3, type: 3}
+  - {fileID: -1654212073, guid: 296ade39350f2154eb7da16e19f4b3b3, type: 3}
+  - {fileID: -1654212073, guid: 296ade39350f2154eb7da16e19f4b3b3, type: 3}
+  isRevealed: 0
   gridManager: {fileID: 0}
+  flagCountScript: {fileID: 0}
 --- !u!114 &937141223282871231
 MonoBehaviour:
   m_ObjectHideFlags: 0
